@@ -1,79 +1,3 @@
-// import userSchema from "../models/user.Schema.js"
-// import bcrypt from 'bcrypt'
-// // import validator from "validator"
-// import jwt from 'jsonwebtoken'
-// export const Register=async(req,res)=>{
-//     // res.send("register page")
-//    try{
-//     const {firstname,lastname,email,password,confirmPassword}=req.body
-    
-
-//     if(!firstname,!lastname,!email,!password,!confirmPassword){
-//         return res.status(400).json({success:false, message:"all feild are require"})
-//     }
-
-//     // const emailvalidator=await validator.isEmail('@gmail.com')
-    
-//     // if(!emailvalidator){
-//     //     return res.status(400).json({success:false,message:"please fill correct email"})
-//     // }
-
-//     const emailisExist=await userSchema.find({email:email})
-
-//     if(emailisExist.length >0 ){
-//         return res.status(400).json({success:false, message:"Emaiol is already exist"})
-//     }
-
-//     if(password !== confirmPassword){
-//         return res.status(400).json({message:"password and confirm not same"})
-//     }
-
-//     const hashPassword=await bcrypt.hashSync(password,10)
-
-//     const user=await userSchema({
-//         firstname:firstname,
-//         lastname:lastname,
-//         email:email,
-//         password:hashPassword
-//     })
-//     await user.save()
-//     return res.status(200).json({success:true,message:"register successfull"})
-//    } catch(error){
-//     return res.status(500).json({error:error})
-//    }
-
-
-// }
-
-
-
-// export const Login=async(req,res)=>{
-//     // res.send("Login page")
-
-//     try{
-//         const {email,password}=req.body
-
-//         if(!email,!password){
-//             return res.status(400).json({success:false,message:"all feild are requiured"})
-//         }
-
-//         const user=await userSchema.findOne({email:email})
-
-//         const iscorrectPassword=await bcrypt.compare(password,user.password)
-
-//         if(!iscorrectPassword){
-//             return res.status(400).json({success:false,message:"password are not match"})
-//         }
-
-//         const token=await jwt.sign({userId:user._id},process.env.JWT_SECRET)
-//         console.log(token,"token");
-
-//         res.status(200).json({success:true,message:"Login "})
-//     }catch(error){
-//         res.status(500).json({success:false,error:error})
-//     }
-// }
-
 import userSchema from "../models/user.Schema.js";
 import bcrypt from 'bcrypt';
 import validator from "validator";
@@ -81,7 +5,8 @@ import jwt from 'jsonwebtoken';
 
 export const Register = async (req, res) => {
     try {
-        const { firstname, lastname, email, password, confirmPassword } = req.body;
+        // const { firstname, lastname, email, password, confirmPassword } = req.body;
+        const { firstname, lastname, email, password, confirmPassword } = req.body.data;
 
         if (!firstname || !lastname || !email || !password || !confirmPassword) {
             return res.status(400).json({ success: false, message: "All fields are required" });
@@ -119,7 +44,8 @@ export const Register = async (req, res) => {
 
 export const Login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        // const { email, password } = req.body
+        const { email, password } = req.body.loginData;
 
         if (!email || !password) {
             return res.status(400).json({ success: false, message: "All fields are required" });
@@ -140,8 +66,33 @@ export const Login = async (req, res) => {
         const token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         console.log(token, "token");
 
-        return res.status(200).json({ success: true, message: "Login successful", token: token });
+        return res.status(200).json({ success: true, message: "Login successful", token: token , user:{userId:user._id, firstname:user.firstname, email:user.email}});
     } catch (error) {
         return res.status(500).json({ success: false, error: error.message });
     }
 };
+
+
+
+export const getCurrentUser=async(req,res)=>{
+    try{
+        const {token}=req.body
+		    if(!token){
+            return res.status(404).json({success:false, messsage:"token is reuired"})
+        }
+
+        const decodedData=await jwt.verify(token,process.env.JWT_SECRET)
+        // console.log("ytdeytdyhykj",decodedData.userId,"decodedData");
+
+        const user=await UserSchema.findById(decodedData.userId)
+        // console.log(user,"user");
+		
+		if (!user) {
+            return res.status(404).json({ success: false })
+        }
+        return res.status(200).json({success:true, user: { firstname: user.firstname, email: user.email, userId: user._id }})
+    }catch(error){
+        return res.status(500).json({success:false, error:error})
+    }
+}
+

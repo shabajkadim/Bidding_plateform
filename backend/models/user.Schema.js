@@ -1,6 +1,5 @@
 import mongoose, { Schema, Types } from "mongoose";
 
-
 const userschema=new Schema({
     firstname:{
         type:String,
