@@ -1,5 +1,5 @@
 
-import productSchema from "../models/product.Schema.js";
+import productschema from '../models/Product.Schema.js'
 export const AddProduct = async (req, res) => {
     try {
         // const { name, category, image, price, isAvailable,productDetails,description } = req.body; 
@@ -9,7 +9,7 @@ export const AddProduct = async (req, res) => {
             return res.status(400).send("All fields are required"); 
         }
     
-        const product = new productSchema({
+        const product = new productschema({
             name: name,
             category: category,
             image: image,
@@ -28,7 +28,7 @@ export const AddProduct = async (req, res) => {
 export const getProduct=async(req,res)=>{
     // res.send("get product")
     try{
-        const getAllData=await productSchema.find({})
+        const getAllData=await productschema.find({})
         res.status(200).json({getAllData:getAllData , success:true})
 
     }catch(error){
