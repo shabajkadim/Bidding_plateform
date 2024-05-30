@@ -2,10 +2,10 @@ import productSchema from "../models/product.Schema.js";
 
 export const AddProduct = async (req, res) => {
     try {
-        // const { name, category, image, price, description } = req.body; 
-        const { name, category, image, price, description } = req.body.uploadedData
+        // const { name, category, image, price, isAvailable,productDetails,description } = req.body; 
+        const { name, category, image, price,isAvailable,description } = req.body.uploadedData
 
-        if (!name || !category || !image || !price || !description) {
+        if (!name || !category || !image || !price ||!isAvailable ||!description) {
             return res.status(400).send("All fields are required"); 
         }
     
@@ -14,6 +14,7 @@ export const AddProduct = async (req, res) => {
             category: category,
             image: image,
             price: price,
+            isAvailable:isAvailable,
             description: description
         });
         await product.save();

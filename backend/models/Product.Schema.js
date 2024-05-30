@@ -17,6 +17,11 @@ const productSchema=new Schema({
         type:Number,
         require:true
     },
+
+    isAvailable:{
+        type:String,
+        require:true
+    },
     description:{
         type:String,
         require:true
