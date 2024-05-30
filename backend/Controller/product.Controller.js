@@ -1,5 +1,5 @@
-import productSchema from "../models/product.Schema.js";
 
+import productSchema from "../models/product.Schema.js";
 export const AddProduct = async (req, res) => {
     try {
         // const { name, category, image, price, isAvailable,productDetails,description } = req.body; 
