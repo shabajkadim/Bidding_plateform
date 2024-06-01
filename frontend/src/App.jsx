@@ -8,6 +8,8 @@ import GetProduct from './components/pages/GetProduct';
 import { Navbar } from './components/navbar/Navbar';
 import Rules from './components/pages/Rules';
 import LiveBids from './components/pages/LiveBids';
+import Notification from './components/pages/Notification';
+import Addcart from './components/pages/Addcart';
 
 
 function App() {
@@ -15,7 +17,6 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        
         <Route path='/' element={<Home/>}  />
         <Route path='register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
@@ -23,6 +24,8 @@ function App() {
         <Route path='/getproduct' element={<GetProduct/>} />
         <Route path='/rules' element={<Rules/>} />
         <Route path='/live-bids' element={<LiveBids/>} />
+        <Route  path='/notification' element={<Notification/>}/>
+        <Route path='/add-cart' element={<Addcart/>} />
       </Routes>
     </div>
   );

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
 const Login = () => {
@@ -40,16 +40,66 @@ const Login = () => {
     }
     
   return (
-    <div>
-      <h1>login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>userData</label><br/>
-        <input type='email' onChange={handleChange} name='email' value={loginData.email}  /><br/>
-        <label>password</label><br/>
-        <input type='password'  onChange={handleChange} name='password' value={loginData.password}  /><br/>
-        <input type='submit' value='submit' /> 
+    // <div>
+    //   <h1>login</h1>
+    //   <form onSubmit={handleSubmit}>
+    //     <label>userData</label><br/>
+    //     <input type='email' onChange={handleChange} name='email' value={loginData.email}  /><br/>
+    //     <label>password</label><br/>
+    //     <input type='password'  onChange={handleChange} name='password' value={loginData.password}  /><br/>
+    //     <input type='submit' value='submit' /> 
+    //   </form>
+    // </div>
+
+
+
+
+    <div className=" bg-slate-100 min-h-0 min-h-[650px] border-4  ">
+    <div className="w-full mt-2 max-w-sm m-auto mb-10 drop-shadow-md shadow-md bg-white flex flex-col p-4">
+      <h1 className="text-center text-3xl font-bold pt-5">Login Page</h1>
+      
+
+      <form className="w-full" onSubmit={handleSubmit}>
+        <label className="text-xl font-bold  mt-3">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          onChange={handleChange}
+          value={loginData.email}
+          placeholder="Enter your enail" 
+          className=" w-full bg-slate-200 px-2 py-2  font-bold  focus-within:outline-blue-400 mt-2 rounded-full pl-5 mb-4"
+        />
+
+        <label className="text-xl font-bold ">Password:</label>
+
+        <div className="  bg-slate-200 flex h-10  px-2 focus-within:outline focus-within:outline-blue-400 rounded-full ites-center pl-5 px-2 py-2 mt-2 mb-4 ">
+          <input
+            id="password"
+            name="password"
+            onChange={handleChange}
+            value={loginData.password}
+           
+            className="w-full bg-slate-200  outline-none font-bold "
+            placeholder="Password"
+          />
+          
+        </div>
+
+        <button className="w-full bg-red-600 h-12  hover:bg-red-800 rounded-full mt-4 cursor-pointer text-xl text-white font-bold">
+          Login
+        </button>
       </form>
+
+      <p className="mt-3  ">
+        Don't have account ?{" "}
+        <Link to={"/register"} className="text-red-900 font-bold underline ">
+          sign-up
+        </Link>{" "}
+      </p>
     </div>
+  </div>
+
   )
 }
 
