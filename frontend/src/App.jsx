@@ -10,6 +10,7 @@ import Rules from './components/pages/Rules';
 import LiveBids from './components/pages/LiveBids';
 import Notification from './components/pages/Notification';
 import Addcart from './components/pages/Addcart';
+import UploadProduct from './components/pages/UploadProduct';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/live-bids' element={<LiveBids/>} />
         <Route  path='/notification' element={<Notification/>}/>
         <Route path='/add-cart' element={<Addcart/>} />
+        <Route path='/upload-Product' element={<UploadProduct/>} />
       </Routes>
     </div>
   );
