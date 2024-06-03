@@ -106,9 +106,6 @@ app.post('/upload-product', async (req, res) => {
 mongoose.connect(process.env.DATABASE_URL).then(
   () => {
     console.log("Database connected..");
-  },
-  (err) => {
-    console.error("Database connection error: ", err);
   }
 );
 

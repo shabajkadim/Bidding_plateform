@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import socketIOClient from 'socket.io-client';
 
-const ENDPOINT = 'http://localhost:8000';
+// const REACT_APP_SERVER_DOMAIN = 'http://localhost:8000';
 
 const UploadProduct = () => {
     const [products, setProducts] = useState([]);
@@ -11,7 +11,7 @@ const UploadProduct = () => {
    
   
     useEffect(() => {
-      const socket = socketIOClient(ENDPOINT);
+      const socket = socketIOClient(process.env.REACT_APP_SERVER_DOMAIN);
   
       socket.on('newProduct', (data) => {
         setNotifications((prevNotifications) => [...prevNotifications, data]);
