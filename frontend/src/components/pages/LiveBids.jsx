@@ -42,11 +42,11 @@ const LiveBids = () => {
                 <img className='w-full h-full' src='https://media.istockphoto.com/id/1365119130/photo/male-auctioneer-pointing-at-one-of-people-with-auction-paddles.jpg?s=612x612&w=0&k=20&c=5p5wJeoig3-Cyt6oQdj0Mx0U-_4UUKH4GIa1J5wG7qA=' />
             </div>
         
-         <div className='w-full text-4xl mt-8 font-bold bg-slate-900 text-slate-200 hover:text-slate-900 hover:bg-slate-200 pl-4 border-2 border-red-500 mb-2 '>Live Bids</div>
+         <div className='w-full text-4xl mt-8 font-bold bg-slate-900 text-slate-200  pl-4 mb-4 border-2 border-red-500 p-2 '>Live Bids</div>
 
-        <div className='w-full border-2  gap-4   border-green-500 flex flex-wrap   justify-around'>
+        <div className='w-[90%] m-auto border-2  gap-4   border-green-500 flex flex-wrap   justify-around'>
             { showProduct.map((data, index) => (
-                <div key={index} className='w-[240px] h-[300px] border-2 border-slate-800 flex flex-col justify-between ' onClick={()=>{handleProductClick(data)}}>
+                <div key={index} className='w-[340px] mb-8 h-[300px] border-2 border-slate-800 flex flex-col justify-between ' onClick={()=>{handleProductClick(data)}}>
                     <div className='border-2 border-slate-500 h-12 overflow-hidden' > {data.name}</div>
                      <div><img className='w-full h-[140px]' src={data.image} alt={data.name} /></div>
                     <div className=''><span>$</span> { data.price}</div>
