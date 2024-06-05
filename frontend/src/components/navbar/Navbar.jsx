@@ -165,9 +165,17 @@ export const Navbar = () => {
   const { state, LOGOUT } = useContext(AuthContext);
   const [showProfile, setShowProfile] = useState(false);
 
+  const [menuList,setMenuList]=useState(false)
+
   const handleShowProfile = () => {
     setShowProfile((prevValue) => !prevValue);
   };
+
+  const handleMenu=()=>{
+    setMenuList((prevValue)=>!prevValue)
+  }
+
+  console.log(handleMenu);
 
   useEffect(() => {
     if (showProfile) {
@@ -181,8 +189,9 @@ export const Navbar = () => {
   return (
     <div className='navbar-main'>
       <div>
-        <Link to={'/'}><img className='w-h100' src='https://www.logoground.com/uploads12/dv12y2023510712023-12-194852706K%20Diamond.jpg' /></Link>
+        <Link to={'/'}><img className='w-full h-full' src='https://www.logoground.com/uploads12/dv12y2023510712023-12-194852706K%20Diamond.jpg' /></Link>
       </div>
+
       <div>
         <div>
           <Link to={'/rules'}>Rules & Regulation</Link>
@@ -191,13 +200,15 @@ export const Navbar = () => {
           <Link to={'/live-bids'}>Live Bids</Link>
         </div>
       </div>
-      <div>
+
+      <div >
         <div>
           <Link to={'/notification'}><i className="fa-solid fa-bell"></i></Link>
         </div>
         <div>
           <Link to={'/add-cart'}><i className="fa-solid fa-cart-shopping"></i></Link>
         </div>
+
         <div className="text-xl text-slate-100 pr-4 md:pr-2" onClick={handleShowProfile}>
           <div className="cursor-pointer">
             {state?.user?.firstname ? (
@@ -226,6 +237,8 @@ export const Navbar = () => {
             </div>
           )}
         </div>
+
+
       </div>
     </div>
   );

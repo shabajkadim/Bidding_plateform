@@ -43,6 +43,7 @@ const AddProduct = () => {
                  <option value={"others"} >Select Category</option>
                  <option value={"jwellery"}>jwellery</option>
                  <option value={"watch"}>watch</option>
+                 <option value={"sales"}>sales</option>
               </select><br />
 
               <label>isAvailable</label><br/>

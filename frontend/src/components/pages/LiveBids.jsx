@@ -37,20 +37,20 @@ const LiveBids = () => {
     }, []);
 
     return (
-        <div>
+        <div className='bg-slate-200'>
             <div className='w-full h-[400px]'>
                 <img className='w-full h-full' src='https://media.istockphoto.com/id/1365119130/photo/male-auctioneer-pointing-at-one-of-people-with-auction-paddles.jpg?s=612x612&w=0&k=20&c=5p5wJeoig3-Cyt6oQdj0Mx0U-_4UUKH4GIa1J5wG7qA=' />
             </div>
         
-         <div className='w-full text-4xl mt-8 font-bold bg-slate-900 text-slate-200  pl-4 mb-4 border-2 border-red-500 p-2 '>Live Bids</div>
+         <div className='w-[88%] m-auto text-4xl mt-8 font-bold  text-slate-900 mb-8  '>Live Bids</div>
 
-        <div className='w-[90%] m-auto border-2  gap-4   border-green-500 flex flex-wrap   justify-around'>
+        <div className='w-[90%] m-auto  gap-4    flex flex-wrap   justify-around'>
             { showProduct.map((data, index) => (
-                <div key={index} className='w-[340px] mb-8 h-[300px] border-2 border-slate-800 flex flex-col justify-between ' onClick={()=>{handleProductClick(data)}}>
-                    <div className='border-2 border-slate-500 h-12 overflow-hidden' > {data.name}</div>
+                <div key={index} className='  w-[340px] mb-8 h-[300px]  hover:shadow-3xl transition-transform transform hover:scale-110 border-slate-800 shadow-2xl shadow-slate-700 cursor-pointer  flex flex-col justify-between ' onClick={()=>{handleProductClick(data)}}>
+                    <div className=' h-[50px] overflow-hidden p-2 font-bold' > {data.name}</div>
                      <div><img className='w-full h-[140px]' src={data.image} alt={data.name} /></div>
-                    <div className=''><span>$</span> { data.price}</div>
-                    <div className=''>{data.isAvailable}</div>
+                    <div className=' p-2 font-bold'><span>$</span> { data.price}</div>
+                    <div className=' p-2 font-bold'>{data.isAvailable}</div>
                     {/* <div>{data.description}</div> */}
                 </div>
             ))}
