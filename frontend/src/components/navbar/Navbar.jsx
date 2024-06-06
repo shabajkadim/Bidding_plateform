@@ -187,27 +187,41 @@ export const Navbar = () => {
   }, [showProfile]);
 
   return (
-    <div className='navbar-main'>
-      <div>
+    <div className='w-full h-12 bg-slate-900 text-slate-50 flex justify-between'>
+      <div className='w-12 h-full ml-4 md:ml-10'>
         <Link to={'/'}><img className='w-full h-full' src='https://www.logoground.com/uploads12/dv12y2023510712023-12-194852706K%20Diamond.jpg' /></Link>
       </div>
 
-      <div>
-        <div>
-          <Link to={'/rules'}>Rules & Regulation</Link>
+      <div className= 'w-[240px] place-items-end md:w-80   flex justify-between items-center text-xl'>
+        <div className='w-full  md:flex justify-between hidden'>
+         <Link to={'/rules'}>Rules & Regulation</Link>
+        <Link to={'/live-bids'}>Live Bids</Link>
         </div>
-        <div>
-          <Link to={'/live-bids'}>Live Bids</Link>
+
+        <div className='md:hidden w-full flex justify-end'>
+          <div onClick={()=>handleMenu()} ><i class="fa-solid fa-bars"></i></div>
+        {menuList && (
+        <div className='absolute mt-8 px-2 py-2 flex flex-col bg-slate-100 text-slate-600'>
+          <Link onClick={()=>handleMenu()} to={'/'}>Home</Link>
+          <Link onClick={()=>handleMenu()} to={'/live-bids'}>Live Bids</Link>
+        </div>)}
         </div>
+        
       </div>
 
-      <div >
+
+
+      <div className= 'w-40 ml-6  flex justify-between md:w-40 md:mr-10 md:border-2 border-red-700  flex justify-between items-center text-xl' >
+        
         <div>
           <Link to={'/notification'}><i className="fa-solid fa-bell"></i></Link>
         </div>
         <div>
           <Link to={'/add-cart'}><i className="fa-solid fa-cart-shopping"></i></Link>
         </div>
+        
+
+
 
         <div className="text-xl text-slate-100 pr-4 md:pr-2" onClick={handleShowProfile}>
           <div className="cursor-pointer">

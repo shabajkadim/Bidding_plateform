@@ -11,6 +11,7 @@ import LiveBids from './components/pages/LiveBids';
 import Notification from './components/pages/Notification';
 import Addcart from './components/pages/Addcart';
 import UploadProduct from './components/pages/UploadProduct';
+import { Footer } from './components/footer/Footer';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/add-cart' element={<Addcart/>} />
         <Route path='/upload-Product' element={<UploadProduct/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
