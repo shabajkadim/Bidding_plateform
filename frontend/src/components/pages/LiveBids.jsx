@@ -10,7 +10,7 @@ const LiveBids = () => {
     const livebidsProduct=showProduct.filter((el)=>el.isAvailable === "outOfStock",[])
     console.log(livebidsProduct,"livebidsProduct");
 
-    // const livebids=showProduct.filter((el)=>el.isAvailable === "liveBid",[])
+    // const product=showProduct.filter((el)=>el._id === id,[])
     // console.log(livebids,"livebids");
 
     const handleProductClick = (product) => {

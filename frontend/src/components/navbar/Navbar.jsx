@@ -211,7 +211,7 @@ export const Navbar = () => {
 
 
 
-      <div className= 'w-40 ml-6  flex justify-between md:w-40 md:mr-10 md:border-2 border-red-700  flex justify-between items-center text-xl' >
+      <div className= 'w-40 ml-6  flex justify-between md:w-40 md:mr-10   flex justify-between items-center text-xl' >
         
         <div>
           <Link to={'/notification'}><i className="fa-solid fa-bell"></i></Link>

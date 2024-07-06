@@ -2,7 +2,7 @@ import React from 'react'
 
 const Addcart = () => {
   return (
-    <div>
+    <div className='mb-[200px]'>
       Addcart
     </div>
   )
