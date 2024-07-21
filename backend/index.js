@@ -109,6 +109,6 @@ mongoose.connect(process.env.DATABASE_URL).then(
   }
 );
 
-server.listen(8000, () => { // Corrected to use server instead of app
-  console.log("Server running on port 8000");
+server.listen(8080, () => { // Corrected to use server instead of app
+  console.log("Server running on port 8080");
 });

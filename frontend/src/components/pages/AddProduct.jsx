@@ -5,7 +5,7 @@ import toast from 'react-hot-toast'
 const AddProduct = () => {
     
     const [uploadedData, setUploadedDada] = useState({ name: "", price: "", image: "", category: "", productDetails:"",isAvailable:"",description: "" })
-
+    // console.log(`${process.env.REACT_APP_SERVER_DOMAIN}`,78563);
     function handleChange(e) {
         setUploadedDada({ ...uploadedData, [e.target.name]: e.target.value })
     }
